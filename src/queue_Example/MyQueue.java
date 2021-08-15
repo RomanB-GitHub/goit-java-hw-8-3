@@ -14,21 +14,21 @@ size() возвращает размер коллекции
 peek() возвращает первый элемент в очереди (FIFO)
 poll() возвращает первый элемент в очереди и удаляет его из коллекции
  */
-public class MyQueue {
-    private static int[] queueArray;
+public class MyQueue<E> {
+    private  E[] queueArray;
     private static int maxSize; // max amount of elements in Queue
     private static int frontElement;
     private static int rearElement;
 
     public MyQueue(int size) {
         maxSize = size;
-        queueArray = new int[maxSize];
+        queueArray = (E[])new Object[maxSize];
         rearElement = 0;
         frontElement = 0;
     }
 
     //добавляет элемент в конец
-    static void add(int data) {
+    public void add(E data) {
         if (maxSize == rearElement) {
             System.out.println("The Queue if  full now");
         } else {
@@ -39,7 +39,7 @@ public class MyQueue {
     }
 
     //удаляет элемент
-    static void remove() {
+   public void remove() {
         if (frontElement == rearElement) {
             System.out.println("The Queue is empty");
         } else {
@@ -47,14 +47,14 @@ public class MyQueue {
                 queueArray[i] = queueArray[i + 1];
             }
             if (rearElement < maxSize)
-                queueArray[rearElement] = 0;
+                queueArray[rearElement] = null;
             rearElement--;
             System.out.println("Removing of element was complete!");
         }
     }
 
     //удаляет элемент под индексом
-    static void removeIndex(int index) {
+    public void removeIndex(int index) {
         if (frontElement == rearElement) {
             System.out.println("The Queue is empty");
         }
@@ -68,7 +68,7 @@ public class MyQueue {
                 }
             }
             if (rearElement < maxSize) {
-                queueArray[rearElement] = 0;
+                queueArray[rearElement] = null;
                 rearElement--;
             }
         }
@@ -88,13 +88,13 @@ public class MyQueue {
         if (frontElement == rearElement) {
             System.out.println("The Queue is empty");
         }
-        int temp = queueArray[frontElement];// получаем первый елемент из очереди
+        E temp = queueArray[frontElement];// получаем первый елемент из очереди
         System.out.printf("\nFor now the front element is %d, and let's delete it! \n", temp);
         for (int i = 0; i < rearElement; i++) {
             queueArray[i] = queueArray[i + 1];
         }
         if (rearElement < maxSize) {
-            queueArray[rearElement] = 0;
+            queueArray[rearElement] = null;
             rearElement--;
         }
     }
@@ -106,7 +106,7 @@ public class MyQueue {
                 queueArray[i] = queueArray[i + 1];
             }
             if (rearElement < maxSize) {
-                queueArray[rearElement] = 0;
+                queueArray[rearElement] = null;
                 rearElement--;
             }
         }
@@ -120,7 +120,7 @@ public class MyQueue {
             System.out.println("The Queue is empty");
         }
         for (int i = 0; i < rearElement; i++) {
-            if (queueArray[i] != 0) {
+            if (queueArray[i] != null) {
                 counter++;
                 System.out.printf("%d <-- ", queueArray[i]);
             }

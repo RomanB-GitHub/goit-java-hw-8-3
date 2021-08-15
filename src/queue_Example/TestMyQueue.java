@@ -2,15 +2,15 @@ package queue_Example;
 
 public class TestMyQueue {
     public static void main(String[] args) {
-        MyQueue myQueue = new MyQueue(5);
+        MyQueue<Integer> myQueue = new MyQueue(5);
         myQueue.size();
         System.out.println("Here I will add five elements to MyQueue : 10,20,30,40,50 ! ");
         //добавляет элемент в конец
-        MyQueue.add(10);
-        MyQueue.add(20);
-        MyQueue.add(30);
-        MyQueue.add(40);
-        MyQueue.add(50);
+        myQueue.add(10);
+        myQueue.add(20);
+        myQueue.add(30);
+        myQueue.add(40);
+        myQueue.add(50);
         System.out.println("--------------");
 
         myQueue.size();
@@ -20,12 +20,12 @@ public class TestMyQueue {
         myQueue.peek();
         System.out.println("--------------");
 
-        MyQueue.remove();
+        myQueue.remove();
         myQueue.size();
         myQueue.peek();
         System.out.println("--------------");
 
-        MyQueue.remove();
+        myQueue.remove();
         myQueue.size();
         myQueue.peek();
         System.out.println("--------------");
@@ -34,19 +34,19 @@ public class TestMyQueue {
         myQueue.size();
         System.out.println("--------------");
 
-        MyQueue.add(70);
-        MyQueue.add(80);
-        MyQueue.add(90);
-        MyQueue.add(100);
-        MyQueue.add(110);
-        MyQueue.add(120);
+        myQueue.add(70);
+        myQueue.add(80);
+        myQueue.add(90);
+        myQueue.add(100);
+        myQueue.add(110);
+        myQueue.add(120);
         myQueue.size();
         System.out.println("--------------");
 
-        MyQueue.removeIndex(7);
-        MyQueue.removeIndex(2);
+        myQueue.removeIndex(7);
+        myQueue.removeIndex(2);
         myQueue.size();
-        MyQueue.add(138);
+        myQueue.add(138);
         myQueue.size();
         System.out.println("--------------");
 
@@ -54,12 +54,12 @@ public class TestMyQueue {
         myQueue.size();
         System.out.println("--------------");
 
-        MyQueue.add(138);
-        MyQueue.add(129);
-        MyQueue.add(345);
-        MyQueue.add(345);
-        MyQueue.add(679);
-        MyQueue.add(973);
+        myQueue.add(138);
+        myQueue.add(129);
+        myQueue.add(345);
+        myQueue.add(345);
+        myQueue.add(679);
+        myQueue.add(973);
         myQueue.size();
 
     }

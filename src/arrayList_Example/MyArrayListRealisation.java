@@ -1,6 +1,6 @@
 package arrayList_Example;
 
-import java.util.Arrays;
+import java.util.*;
 
 /*
 Написать свой класс MyArrayList как аналог классу ArrayList.
@@ -15,23 +15,23 @@ clear() очищает коллекцию
 size() возвращает размер коллекции
 get(int index) возвращает элемент под индексом
  */
-public class MyArrayListRealisation {
+public class MyArrayListRealisation<E> {
 
     private static final int DEFAULT_CAPACITY = 10;
-    private Object[] array;
+    private E [] array;
     private int size;
 
-    public Object[] getArray() {
-        return array;
-    }
-
     public MyArrayListRealisation() {
-        this.array = new Object[DEFAULT_CAPACITY];
+        this.array = (E[]) new Object[DEFAULT_CAPACITY];
         this.size = 0;
     }
 
+    public E[] getArray() {
+        return array;
+    }
+
     //добавляет элемент в конец
-    public boolean add(Object value) {
+    public boolean add(E value) {
         if (size == array.length) {
             resize();
         }
@@ -41,14 +41,14 @@ public class MyArrayListRealisation {
     }
 
     private void resize() {
-        array = Arrays.copyOf(array, (size * 3 / 2 + 1));
+        array = (E[]) Arrays.copyOf(array, (size * 3 / 2 + 1));
     }
 
 
     //удаляет элемент под индексом
     public void remove(int index) {
-        Object[] arrayCopy = Arrays.copyOf(array, array.length);
-        array = new Object[array.length];
+        E[] arrayCopy = Arrays.copyOf(array, array.length);
+        array = (E[]) new Object[array.length];
         for (int i = 0, j = 0; i < arrayCopy.length; i++) {
             if (i != index) {
                 array[j++] = arrayCopy[i];
@@ -59,7 +59,7 @@ public class MyArrayListRealisation {
     //возвращает размер коллекции
     public int size() {
         int counter = 0;
-        for (Object element : array) {
+        for (E element : array) {
             if (element != null) {
                 counter++;
             }
@@ -77,8 +77,8 @@ public class MyArrayListRealisation {
 
 
     //возвращает элемент под индексом
-    public Object get(int index) {
-        Object result = null;
+    public E get(int index) {
+        E result = null;
         for (int i = 0; i < array.length; i++) {
             if (i == index) {
                 result = array[i];
